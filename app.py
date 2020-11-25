@@ -9,13 +9,11 @@ from assets.locations_wsss import LOCATIES_WSSS
 from vzm.utilities import *
 
 COL_VZM = "VZM_WT"
-import os
-print(os.getcwd())
 
 @st.cache(allow_output_mutation=True)
 def load_abt():
     # Load the data
-    abt = pd.read_feather("data//abt_feat.feather")
+    abt = pd.read_feather("data\\abt_feat.feather")
 
     # Fix the timezone issues in streamlit
     abt["datetime"] = abt["datetime"].dt.tz_localize("UTC")
@@ -24,7 +22,6 @@ def load_abt():
     abt = abt.set_index("datetime")
 
     return abt
-
 
 @st.cache
 def get_train_cols_wsbd(abt, col_wth_beneden):
