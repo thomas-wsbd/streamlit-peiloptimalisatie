@@ -13,7 +13,7 @@ COL_VZM = "VZM_WT"
 @st.cache(allow_output_mutation=True)
 def load_abt():
     # Load the data
-    abt = pd.read_feather("data\\abt_feat.feather")
+    abt = pd.read_feather("data//abt_feat.feather")
 
     # Fix the timezone issues in streamlit
     abt["datetime"] = abt["datetime"].dt.tz_localize("UTC")
